@@ -58,12 +58,12 @@ class ExpenseProvider extends Component {
         this.setState({
           expenses: this.state.expenses.filter((e) => e.id !== expenseId),
         });
-        history.push("/");
       })
       .catch((err) => {
         console.log(err);
       });
   };
+
   render() {
     return (
       <ExpenseContext.Provider

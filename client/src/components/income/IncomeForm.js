@@ -91,7 +91,7 @@ const ConnectedIncomeForm = (props) => (
 	<IncomeConsumer>
 		{ 
 			value => 
-			<BudgetForm {...props} {...value} />
+			<IncomeForm {...props} {...value} />
 		}
 	</IncomeConsumer>  
 )

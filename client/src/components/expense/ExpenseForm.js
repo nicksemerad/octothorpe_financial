@@ -91,7 +91,7 @@ const ConnectedExpenseForm = (props) => (
 	<ExpenseConsumer>
 		{ 
 			value => 
-			<BudgetForm {...props} {...value} />
+			<ExpenseForm {...props} {...value} />
 		}
 	</ExpenseConsumer>  
 )

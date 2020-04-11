@@ -54,12 +54,13 @@ class BudgetShow extends Component {
       return(
         <div>
             <h1>Budget: {name}</h1>
+            <h2>Goal: {goal}</h2>
             <br/>
         <Table celled striped>
         <Table.Header>
         <Table.Row>
-            <Table.HeaderCell> Type </Table.HeaderCell>
-            <Table.HeaderCell> Name </Table.HeaderCell>
+            <Table.HeaderCell> Income / Expense </Table.HeaderCell>
+            <Table.HeaderCell> Category </Table.HeaderCell>
             <Table.HeaderCell> Amount </Table.HeaderCell>
             <Table.HeaderCell> Next Date </Table.HeaderCell>
             <Table.HeaderCell> Category </Table.HeaderCell>

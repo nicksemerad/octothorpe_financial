@@ -3,7 +3,7 @@ import { BudgetConsumer } from "../../providers/BudgetProvider";
 import { Button, Checkbox, Form } from 'semantic-ui-react';
 
 class BudgetForm extends Component {
-	state = { name: '', goal: ''  }
+	state = { name: '', goal: ''}
 
 	componentDidMount() {
 		if (this.props.budget) {
@@ -19,7 +19,7 @@ class BudgetForm extends Component {
 
 	handleSubmit = (e) => {
 		e.preventDefault()
-		if(this.props.budget) {
+		if(this.props.budget.id) {
 			this.props.updateBudget(this.props.budget.id, this.state)
 			this.props.toggleForm()
 		} else {

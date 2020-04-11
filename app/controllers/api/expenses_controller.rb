@@ -29,12 +29,13 @@ class Api::ExpensesController < ApplicationController
     end
   end
 
-    def destroy
-      Expense.find(params[:id]).destroy
-      render json: { message: 'Expense Deleted'}
-    end
+   def destroy
+     Expense.find(params[:id]).destroy
+     render json: { message: 'Expense Deleted'}
+   end
 
   private
+  
   def expense_params
     params.require(:expense).permit(:billerName, :category, :amount, :freq, :nextBillDate)
   end
@@ -42,4 +43,5 @@ class Api::ExpensesController < ApplicationController
   def set_budget
     @budget = Budget.find(params[:id])
   end
+
 end

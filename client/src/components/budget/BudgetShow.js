@@ -59,11 +59,10 @@ class BudgetShow extends Component {
         <Table celled striped>
         <Table.Header>
         <Table.Row>
-            <Table.HeaderCell> Income / Expense </Table.HeaderCell>
+            <Table.HeaderCell> Expense </Table.HeaderCell>
             <Table.HeaderCell> Category </Table.HeaderCell>
             <Table.HeaderCell> Amount </Table.HeaderCell>
             <Table.HeaderCell> Next Date </Table.HeaderCell>
-            <Table.HeaderCell> Category </Table.HeaderCell>
             </Table.Row>    
         </Table.Header>
         <Table.Body>
@@ -71,8 +70,7 @@ class BudgetShow extends Component {
                 <Table.Cell> </Table.Cell>               
                 <Table.Cell> </Table.Cell>               
                 <Table.Cell> </Table.Cell>               
-                <Table.Cell> </Table.Cell>               
-                <Table.Cell> </Table.Cell>               
+                <Table.Cell> </Table.Cell>                            
             </Table.Row>
         </Table.Body>
         </Table>

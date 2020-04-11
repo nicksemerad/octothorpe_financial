@@ -1,8 +1,10 @@
 import React from 'react';
-import BudgetForm from './BudgetForm';
 import { Link } from 'react-router-dom';
+import { BudgetConsumer } from "../../providers/BudgetProvider";
+import { Table } from 'semantic-ui-react';
 
-export default class MyBudgets extends React.Component {
+class MyBudgets extends React.Component {
+  state = { budgets: [] }
   constructor(props){
     super(props);
     this.state = {
@@ -33,6 +35,26 @@ export default class MyBudgets extends React.Component {
     <div>
       <div style={style}>
         <span>{header}</span>
+        <Table celled striped>
+        <Table.Header>
+        <Table.Row>
+            <Table.HeaderCell> Budget Name </Table.HeaderCell>
+            <Table.HeaderCell> Goal </Table.HeaderCell>
+            </Table.Row>    
+        </Table.Header>
+        <Table.Body>
+            <Table.Row> 
+            {
+              this.props.budgets.map( b => 
+                <>
+              <Table.Cell>{b.name}</Table.Cell>
+              <Table.Cell>{b.goal}</Table.Cell>
+              </>
+                )
+             }                                       
+            </Table.Row>
+        </Table.Body>
+        </Table>
       </div>
       <div style={container}>
         <p style={addBudget}>
@@ -54,3 +76,14 @@ export default class MyBudgets extends React.Component {
   );
  }
 }
+
+const ConnectedMyBudgets = (props) => (
+	<BudgetConsumer>
+		{ 
+			value => 
+			<MyBudgets {...props} {...value} />
+		}
+	</BudgetConsumer>  
+)
+
+export default ConnectedMyBudgets; 

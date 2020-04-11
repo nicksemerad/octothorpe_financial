@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { BudgetConsumer } from '../../providers/BudgetProvider';
 import BudgetForm from './BudgetForm';
 import { Button, Table, Icon } from 'semantic-ui-react';
-import ExpenseForm from '../expense/ExpenseForm';
-import IncomeForm from  '../income/IncomeForm';
 import { Link } from 'react-router-dom';
 
 class BudgetShow extends Component {
@@ -39,7 +37,12 @@ class BudgetShow extends Component {
             onClick={() => this.props.addIncome()}
             class="ui primary button">
             Add Income
-            </Button>
+        </Button>
+        <Button 
+            onClick={() => this.props.deleteBudget(this.props.match.params.id)}
+            class="ui primary button">
+            Delete Budget
+        </Button>
         </>
          }
      </>

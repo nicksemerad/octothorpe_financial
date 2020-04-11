@@ -21,7 +21,6 @@ class BudgetForm extends Component {
 		e.preventDefault()
 		if(this.props.budget.id) {
 			this.props.updateBudget(this.props.budget.id, this.state)
-			this.props.toggleForm()
 		} else {
 			this.props.addBudget(this.state)
 		}

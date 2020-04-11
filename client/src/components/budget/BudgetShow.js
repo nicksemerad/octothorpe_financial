@@ -32,17 +32,12 @@ class BudgetShow extends Component {
             Add Expense
         </Button>
         </Link>
-
+        <Link to={{ pathname: `/budgets/${this.props.match.params.id}/addIncome`, budget:this.props.budget}} >
         <Button 
-            onClick={() => this.props.addIncome()}
             class="ui primary button">
             Add Income
-        </Button>
-        <Button 
-            onClick={() => this.props.deleteBudget(this.props.match.params.id)}
-            class="ui primary button">
-            Delete Budget
-        </Button>
+            </Button>
+            </Link>
         </>
          }
      </>

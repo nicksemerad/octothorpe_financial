@@ -8,6 +8,7 @@ import AuthProvider from "./providers/AuthProvider";
 import { initMiddleware } from "devise-axios";
 import BudgetProvider from "./providers/BudgetProvider";
 import ExpenseProvider from "./providers/ExpenseProvider";
+import IncomeProvider from './providers/IncomeProvider';
 
 initMiddleware();
 
@@ -15,11 +16,13 @@ ReactDOM.render(
   <React.StrictMode>
     <AuthProvider>
       <BudgetProvider>
-        <ExpenseProvider>
-          <BrowserRouter>
-            <App />
-          </BrowserRouter>
-        </ExpenseProvider>
+        <IncomeProvider>
+          <ExpenseProvider>
+            <BrowserRouter>
+              <App />
+            </BrowserRouter>
+          </ExpenseProvider>
+        </IncomeProvider>
       </BudgetProvider>
     </AuthProvider>
   </React.StrictMode>,

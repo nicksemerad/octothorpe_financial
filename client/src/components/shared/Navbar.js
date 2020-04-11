@@ -2,7 +2,16 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { Menu } from 'semantic-ui-react';
 import { AuthConsumer } from '../../providers/AuthProvider';
+import img from '../../images/OCTO_LOGO.jpg';
+import styled from 'styled-components';
 
+const Styles = styled.div`
+.img{
+  margin-left: 5px;
+  width: 30px;
+  height: 35px;
+}
+`
 class Navbar extends Component {
 
   rightNavItems = () => {
@@ -40,16 +49,17 @@ class Navbar extends Component {
   render() {
     return(
       <div>
-        <Menu pointing secondary>
-          <Link to='/'>
-            <Menu.Item
-              name='home'
-              id='home'
-              active={this.props.location.pathname === '/'}
-            />
-          </Link>
-            { this.rightNavItems() }
-        </Menu>
+        <Styles>
+          <Menu pointing secondary>
+            <Link to='/'>
+              <img src={img}
+                className='img'
+                active={this.props.location.pathname === '/'}
+                />
+            </Link>
+              { this.rightNavItems() }
+          </Menu>
+        </Styles>
       </div>
     )
   }

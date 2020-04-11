@@ -6,20 +6,21 @@ import 'semantic-ui-css/semantic.min.css';
 import { BrowserRouter } from 'react-router-dom';
 import AuthProvider from './providers/AuthProvider';
 import { initMiddleware } from 'devise-axios';
-import IncomeProvider from "./providers/IncomeProvider";
-
-
+import BudgetProvider from './providers/BudgetProvider';
+import IncomeProvider from './providers/IncomeProvider';
 
 initMiddleware();
 
 ReactDOM.render(
   <React.StrictMode>
     <AuthProvider>
-      <IncomeProvider>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-      </IncomeProvider>
+      <BudgetProvider>
+        <IncomeProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+        </IncomeProvider>
+      </BudgetProvider>
     </AuthProvider>
   </React.StrictMode>,
   document.getElementById('root')

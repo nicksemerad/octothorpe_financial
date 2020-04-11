@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 
 const ExpenseContext = React.createContext();
-export const ExpenseConsumer = ExpenseProvider.Consumer;
+export const ExpenseConsumer = ExpenseContext.Consumer;
 
 class ExpenseProvider extends Component {
   state = {
@@ -25,7 +25,7 @@ class ExpenseProvider extends Component {
     axios
       .post(`/api/budgets/${budgetId}/expenses`)
       .then((res) => {
-        this.setState({ expenses: [...expenses, res.data] });
+        this.setState({ expenses: [...this.state.expenses, res.data] });
         history.push("/");
       })
       .catch((err) => {
@@ -38,12 +38,12 @@ class ExpenseProvider extends Component {
       .post(`/api/budgets/${budgetId}/expenses/${expenseId}`)
       .then((res) => {
         this.state.expenses.map((e) => {
-          if (e.id === expense.id) {
+          if (e.id === this.state.expense.id) {
             return res.data;
           }
           return e;
         });
-        this.setState({ expense: [...expense, res.data] });
+        this.setState({ expense: [...this.state.expense, res.data] });
         history.push("/");
       })
       .catch((err) => {
@@ -72,7 +72,7 @@ class ExpenseProvider extends Component {
           getExpenses: this.getExpenses,
           createExpense: this.createExpense,
           deleteExpense: this.deleteExpense,
-          updateExprese: this.updateExpense,
+          updateExpense: this.updateExpense,
         }}
       >
         {this.props.children}

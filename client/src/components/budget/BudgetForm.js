@@ -1,6 +1,6 @@
-import React, { Component } from "./node_modules/react";
+import React, { Component } from "react";
 import { BudgetConsumer } from "../../providers/BudgetProvider";
-import { Button, Checkbox, Form } from './node_modules/semantic-ui-react';
+import { Button, Checkbox, Form } from 'semantic-ui-react';
 
 class BudgetForm extends Component {
 	state = { name: '', goal: ''  }
@@ -42,7 +42,7 @@ class BudgetForm extends Component {
                         />
                 </Form.Field>
                 <Form.Field>
-				<label>Description</label>
+				<label>Budget Goal</label>
                     <input 
                         required
                         name='goal'

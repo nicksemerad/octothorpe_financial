@@ -1,7 +1,7 @@
-import React, { Component } from './node_modules/react';
+import React, { Component } from 'react';
 import { ExpenseConsumer } from '../../providers/ExpenseProvider';
 import ExpenseForm from './ExpenseForm';
-import { Button, Table, Icon } from './node_modules/semantic-ui-react';
+import { Button, Table, Icon } from 'semantic-ui-react';
 
 class ExpenseShow extends Component {
   state = { showForm: false }

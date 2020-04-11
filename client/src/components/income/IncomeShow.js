@@ -1,7 +1,7 @@
-import React, { Component } from './node_modules/react';
+import React, { Component } from 'react';
 import { IncomeConsumer } from '../../providers/IncomeProvider';
 import IncomeForm from './IncomeForm';
-import { Button, Table, Icon } from './node_modules/semantic-ui-react';
+import { Button, Table, Icon } from 'semantic-ui-react';
 
 class IncomeShow extends Component {
   state = { showForm: false }

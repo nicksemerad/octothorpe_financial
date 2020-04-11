@@ -1,13 +1,13 @@
-import React, { Component } from "./node_modules/react";
+import React, { Component } from "react";
 import { ExpenseConsumer } from "../../providers/ExpenseProvider";
-import { Button, Checkbox, Form } from './node_modules/semantic-ui-react';
+import { Button, Checkbox, Form } from 'semantic-ui-react';
 
 class ExpenseForm extends Component {
 	state = { billerName: '', category: '', amount: '', freq: '', nextBillDate: ''  }
 
 	componentDidMount() {
-		if (this.props.budget.expense) {
-			const { billerName, category, amount, freq, nextBillDate } = this.props.budget.expense
+		if (this.props.expense) {
+			const { billerName, category, amount, freq, nextBillDate } = this.props.expense
 			this.setState({ billerName, category, amount, freq, nextBillDate })
 		}
 	}
@@ -19,11 +19,11 @@ class ExpenseForm extends Component {
 
 	handleSubmit = (e) => {
 		e.preventDefault()
-		if(this.props.budget.expense) {
-			this.props.updateExpense(this.props.budget.expense.id, this.state)
-			this.props.toggleForm()
+		if(this.props.expense) {
+			this.props.updateExpense(this.props.expense, this.state.id)
+		
 		} else {
-			this.props.addExpense(this.state)
+			this.props.createExpense(this.state)
 		}
 		this.setState({ billerName: '', category: '', amount: '', freq: '', nextBillDate: '' })
 	}

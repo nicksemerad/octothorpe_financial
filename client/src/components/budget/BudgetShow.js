@@ -1,9 +1,10 @@
-import React, { Component } from './node_modules/react';
+import React, { Component } from 'react';
 import { BudgetConsumer } from '../../providers/BudgetProvider';
 import BudgetForm from './BudgetForm';
-import { Button, Table, Icon } from './node_modules/semantic-ui-react';
+import { Button, Table, Icon } from 'semantic-ui-react';
 import ExpenseForm from '../expense/ExpenseForm';
 import IncomeForm from  '../income/IncomeForm';
+import { Link } from 'react-router-dom';
 
 class BudgetShow extends Component {
   state = { showForm: false }
@@ -27,13 +28,15 @@ class BudgetShow extends Component {
 	        class="ui secondary button">
           Edit
         </Button>
+        <Link to={{ pathname: `/budgets/${this.props.match.params.id}/addExpense`, budget:this.props.budget }} >
         <Button
-            onClick={() => <ExpenseForm />}
             class="ui primary button">
             Add Expense
         </Button>
+        </Link>
+
         <Button 
-            onClick={() => <IncomeForm />}
+            onClick={() => this.props.addIncome()}
             class="ui primary button">
             Add Income
             </Button>

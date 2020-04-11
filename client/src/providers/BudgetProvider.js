@@ -75,6 +75,7 @@ class BudgetProvider extends Component {
         updateBudget: this.updateBudget,
         deleteBudget: this.deleteBudget,
         getBudget: this.getBudget,
+        budget: this.state.budget,
       }}>
         { this.props.children }
       </BudgetContext.Provider>

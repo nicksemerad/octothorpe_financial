@@ -1,6 +1,6 @@
-import React, { Component } from "./node_modules/react";
+import React, { Component } from "react";
 import { IncomeConsumer } from "../../providers/IncomeProvider";
-import { Button, Checkbox, Form } from './node_modules/semantic-ui-react';
+import { Button, Checkbox, Form } from 'semantic-ui-react';
 
 class IncomeForm extends Component {
 	state = { payerName: '', category: '', amount: '', freq: '', nextPayDate: ''  }

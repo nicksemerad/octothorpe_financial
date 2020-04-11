@@ -5,23 +5,44 @@ const ExpenseContext = React.createContext();
 export const ExpenseConsumer = ExpenseProvider.Consumer;
 
 class ExpenseProvider extends Component {
-  state = { expense: [] };
+  state = {
+    expenses: [],
+    expense: {},
+  };
 
-  getExpenses(id) {
+  getExpenses = (budgetId) => {
     axios
-      .get(`/api/budgets/${id}/expenses`)
+      .get(`/api/budgets/${budgetId}/expenses`)
       .then((res) => {
-        this.setState({ expense: res.data });
+        this.setState({ expenses: res.data });
       })
       .catch((err) => {
         console.log(err);
       });
-  }
+  };
 
-  createExpense = (expense, id, history) => {
+  createExpense = (budgetId, history) => {
     axios
-      .post(`/api/budgets/${id}/expenses`, expense)
+      .post(`/api/budgets/${budgetId}/expenses`)
       .then((res) => {
+        this.setState({ expenses: [...expenses, res.data] });
+        history.push("/");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  updateExpense = (budgetId, expenseId, history) => {
+    axios
+      .post(`/api/budgets/${budgetId}/expenses/${expenseId}`)
+      .then((res) => {
+        this.state.expenses.map((e) => {
+          if (e.id === expense.id) {
+            return res.data;
+          }
+          return e;
+        });
         this.setState({ expense: [...expense, res.data] });
         history.push("/");
       })
@@ -30,36 +51,28 @@ class ExpenseProvider extends Component {
       });
   };
 
-  deleteExpense = (expense, id, history) => {
+  deleteExpense = (budgetId, expenseId, history) => {
     axios
-      .post(`/api/budgets/${id}/expense`, user)
+      .post(`/api/budgets/${budgetId}/expense/${expenseId}`)
       .then((res) => {
-        this.setState({ user: res.data.data });
+        this.setState({
+          expenses: this.state.expenses.filter((e) => e.id !== expenseId),
+        });
         history.push("/");
       })
       .catch((err) => {
         console.log(err);
       });
   };
-
-  handleLogout = (history) => {
-    axios
-      .delete("/api/auth/sign_out")
-      .then((res) => {
-        this.setState({ user: null });
-        history.push("/login");
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
   render() {
     return (
       <ExpenseContext.Provider
         value={{
           ...this.state,
           getExpenses: this.getExpenses,
+          createExpense: this.createExpense,
+          deleteExpense: this.deleteExpense,
+          updateExprese: this.updateExpense,
         }}
       >
         {this.props.children}

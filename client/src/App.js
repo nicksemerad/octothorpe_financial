@@ -8,6 +8,10 @@ import Register from './components/auth/Register'
 import Login from './components/auth/Login';
 import FetchUser from './components/auth/FetchUser';
 import ProtectedRoute from './components/auth/ProtectedRoute';
+import BudgetShow from './components/shared/BudgetShow';
+import BudgetForm from './components/shared/BudgetForm';
+
+
 
 const App = () => (
   <>
@@ -18,6 +22,8 @@ const App = () => (
           <Route exact path='/' component={Home} />
           <Route exact path='/login' component={Login} />
           <Route exact path='/register' component={Register} />
+          <Route exact path='/budgets/:id' component={BudgetShow} />
+          <ProtectedRoute exact path='/newBudget' component={BudgetForm} />
           <ProtectedRoute exact path='/secret' render={() => <h1>Secret</h1>}/>
           <Route component={NoMatch} />
         </Switch>

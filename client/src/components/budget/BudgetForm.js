@@ -3,7 +3,7 @@ import { BudgetConsumer } from "../../providers/BudgetProvider";
 import { Button, Checkbox, Form } from 'semantic-ui-react';
 
 class BudgetForm extends Component {
-	state = { name: '', goal: ''  }
+	state = { name: '', goal: ''}
 
 	componentDidMount() {
 		if (this.props.budget) {

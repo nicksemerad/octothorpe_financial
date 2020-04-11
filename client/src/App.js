@@ -11,7 +11,7 @@ import ProtectedRoute from "./components/auth/ProtectedRoute";
 import BudgetShow from "./components/budget/BudgetShow";
 import BudgetForm from "./components/budget/BudgetForm";
 import ExpenseForm from "./components/expense/ExpenseForm";
-import MyBudgets from "./components/budget/MyBudgets";
+import ConnectedMyBudgets from "./components/budget/MyBudgets";
 
 const App = () => (
   <>
@@ -25,7 +25,7 @@ const App = () => (
           <Route exact path="/budgets/:id" component={BudgetShow} />
           <Route exact path="/budgets/:budget_id/addExpense" component={ExpenseForm} />
           <ProtectedRoute exact path="/newBudget" component={BudgetForm} />
-          <ProtectedRoute exact path="/myBudgets" component={MyBudgets} />
+          <ProtectedRoute exact path="/myBudgets" component={ConnectedMyBudgets} />
           <ProtectedRoute exact path="/secret" render={() => <h1>Secret</h1>} />
           <Route component={NoMatch} />
         </Switch>

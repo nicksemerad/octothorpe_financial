@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { BudgetConsumer } from '../../providers/BudgetProvider';
 import BudgetForm from './BudgetForm';
 import { Button, Table, Icon } from 'semantic-ui-react';
-import ExpenseForm from '../expense/ExpenseForm';
-import IncomeForm from  '../income/IncomeForm';
 import { Link } from 'react-router-dom';
 
 class BudgetShow extends Component {
@@ -51,15 +49,15 @@ class BudgetShow extends Component {
       return(
         <div>
             <h1>Budget: {name}</h1>
+            <h2>Goal: {goal}</h2>
             <br/>
         <Table celled striped>
         <Table.Header>
         <Table.Row>
-            <Table.HeaderCell> Type </Table.HeaderCell>
-            <Table.HeaderCell> Name </Table.HeaderCell>
+            <Table.HeaderCell> Expense </Table.HeaderCell>
+            <Table.HeaderCell> Category </Table.HeaderCell>
             <Table.HeaderCell> Amount </Table.HeaderCell>
             <Table.HeaderCell> Next Date </Table.HeaderCell>
-            <Table.HeaderCell> Category </Table.HeaderCell>
             </Table.Row>    
         </Table.Header>
         <Table.Body>
@@ -67,8 +65,7 @@ class BudgetShow extends Component {
                 <Table.Cell> </Table.Cell>               
                 <Table.Cell> </Table.Cell>               
                 <Table.Cell> </Table.Cell>               
-                <Table.Cell> </Table.Cell>               
-                <Table.Cell> </Table.Cell>               
+                <Table.Cell> </Table.Cell>                            
             </Table.Row>
         </Table.Body>
         </Table>

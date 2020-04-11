@@ -10,7 +10,7 @@ class IncomeProvider extends Component {
   fetchIncomes = (budgetId) => {
     axios.get(`/api/budgets/${budgetId}/incomes`)
     .then( res => {
-        this.setState({ incomes: res.data] })
+        this.setState({ incomes: res.data} )
     })
     .catch( err => {
         console.log(err)

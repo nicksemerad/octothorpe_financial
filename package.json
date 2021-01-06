@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "devise-axios": "^1.0.24",
     "react-router-dom": "^5.1.2",
     "semantic-ui-css": "^2.4.1",
